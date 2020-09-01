@@ -41,6 +41,7 @@ download_data:
 dvc_configure:
 	dvc init
 	dvc remote add --default gdrive gdrive://$(GDRIVE_FOLDER_ID)/dvcstore
+	ln -s ~/.deeppavlov/models models_data
 
 #################################################################################
 # Self Documenting Commands                                                     #
