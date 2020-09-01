@@ -1,4 +1,3 @@
 python-dotenv>=0.5.1
-mlflow
-boto3
-scikit-learn
+deeppavlov==0.11.0
+dvc==1.6.1
