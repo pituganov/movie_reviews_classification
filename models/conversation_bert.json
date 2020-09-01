@@ -89,7 +89,7 @@
     },
     "train": {
       "batch_size": 4,
-      "epochs": 10,
+      "epochs": 1,
       "metrics": [
         "f1_weighted",
         "f1_macro",

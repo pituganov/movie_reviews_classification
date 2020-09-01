@@ -27,3 +27,6 @@ stages:
     - data/interim/labeledTrainData.train.csv
     - data/interim/labeledTrainData.valid.csv
     - models/conversation_bert.json
+    outs:
+    - models_data/classifiers/movie_reviews_conv_bert:
+        cache: false

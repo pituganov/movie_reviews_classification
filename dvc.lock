@@ -31,4 +31,7 @@ train:
   - path: data/interim/labeledTrainData.valid.csv
     md5: eb3570898c46ef96e35668539374933a
   - path: models/conversation_bert.json
-    md5: cf21718820b935bad05f94c6d92c9ff7
+    md5: 1e373d4d5f05a63f68363a5996867327
+  outs:
+  - path: models_data/classifiers/movie_reviews_conv_bert
+    md5: c04de1a448941b72fc504b95eac51738.dir
