@@ -1,0 +1,23 @@
+stages:
+  get_data:
+    cmd: make download_data
+    outs:
+    - data/raw/labeledTrainData.tsv:
+        cache: false
+    - data/raw/testData.tsv:
+        cache: false
+    - data/raw/unlabeledTrainData.tsv:
+        cache: false
+  split:
+    cmd: python movie_reviews_classification/data/train_valid_split.py data/raw/labeledTrainData.tsv
+      data/interim --column sentiment
+    deps:
+    - data/raw/labeledTrainData.tsv
+    - movie_reviews_classification/data/train_valid_split.py
+    params:
+    - data.test_size
+    outs:
+    - data/interim/labeledTrainData.train.csv:
+        cache: false
+    - data/interim/labeledTrainData.valid.csv:
+        cache: false

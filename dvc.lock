@@ -1,0 +1,25 @@
+get_data:
+  cmd: make download_data
+  outs:
+  - path: data/raw/labeledTrainData.tsv
+    md5: a1f99a7f1243b44652a331770c96ebc0
+  - path: data/raw/testData.tsv
+    md5: 82b3d9315acceb41fbe0a6f3965f22cf
+  - path: data/raw/unlabeledTrainData.tsv
+    md5: 47fb9a55b979976093a091df9430bd3b
+split:
+  cmd: python movie_reviews_classification/data/train_valid_split.py data/raw/labeledTrainData.tsv
+    data/interim --column sentiment
+  deps:
+  - path: data/raw/labeledTrainData.tsv
+    md5: a1f99a7f1243b44652a331770c96ebc0
+  - path: movie_reviews_classification/data/train_valid_split.py
+    md5: 3522cc2345d3942074d8093eba1609fe
+  params:
+    params.yaml:
+      data.test_size: 0.3
+  outs:
+  - path: data/interim/labeledTrainData.train.csv
+    md5: 3ca24a852488babebe5e0423ab22885d
+  - path: data/interim/labeledTrainData.valid.csv
+    md5: eb3570898c46ef96e35668539374933a
