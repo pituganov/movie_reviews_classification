@@ -21,3 +21,9 @@ stages:
         cache: false
     - data/interim/labeledTrainData.valid.csv:
         cache: false
+  train:
+    cmd: python -m deeppavlov train models/conversation_bert.json -d
+    deps:
+    - data/interim/labeledTrainData.train.csv
+    - data/interim/labeledTrainData.valid.csv
+    - models/conversation_bert.json

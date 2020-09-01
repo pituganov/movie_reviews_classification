@@ -23,3 +23,12 @@ split:
     md5: 3ca24a852488babebe5e0423ab22885d
   - path: data/interim/labeledTrainData.valid.csv
     md5: eb3570898c46ef96e35668539374933a
+train:
+  cmd: python -m deeppavlov train models/conversation_bert.json -d
+  deps:
+  - path: data/interim/labeledTrainData.train.csv
+    md5: 3ca24a852488babebe5e0423ab22885d
+  - path: data/interim/labeledTrainData.valid.csv
+    md5: eb3570898c46ef96e35668539374933a
+  - path: models/conversation_bert.json
+    md5: cf21718820b935bad05f94c6d92c9ff7
