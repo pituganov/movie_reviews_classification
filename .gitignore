@@ -87,3 +87,4 @@ target/
 # vim
 *.swp
 *.swo
+models_data
