@@ -23,3 +23,22 @@ split:
     md5: 3ca24a852488babebe5e0423ab22885d
   - path: data/interim/labeledTrainData.valid.csv
     md5: eb3570898c46ef96e35668539374933a
+train:
+  cmd: nohup python -m deeppavlov train models/tfidf_logreg.json -d > data/logs/tfidf_logreg.log;
+    tail -n 2 data/logs/tfidf_logreg.log | head -n 1 > /tmp/train_log.json; tail -n
+    1 data/logs/tfidf_logreg.log > /tmp/valid_log.json; jq -s '.[0] * .[1]' /tmp/train_log.json
+    /tmp/valid_log.json > summary.json
+  deps:
+  - path: data/interim/labeledTrainData.train.csv
+    md5: 3ca24a852488babebe5e0423ab22885d
+  - path: data/interim/labeledTrainData.valid.csv
+    md5: eb3570898c46ef96e35668539374933a
+  - path: models/tfidf_logreg.json
+    md5: 9d79424a5fbd30e8dae28baa6cdfcb6b
+  outs:
+  - path: data/logs/tfidf_logreg.log
+    md5: 09ec7f2746bdeabe974bb37bf6c93fee
+  - path: models_data/classifiers/sentiment_tfidf_logreg
+    md5: 79c28a131a5897b9f4bcd6dc874c508b.dir
+  - path: summary.json
+    md5: f5e411111f8077a3014a8b30e0fd7b90
