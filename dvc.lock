@@ -34,11 +34,11 @@ train:
   - path: data/interim/labeledTrainData.valid.csv
     md5: eb3570898c46ef96e35668539374933a
   - path: models/tfidf_logreg.json
-    md5: 656508a865a8c88f17fabebe53a9dca6
+    md5: fbe5dc1f4696f941a433726ac95f1ee0
   outs:
   - path: data/logs/tfidf_logreg.log
-    md5: ce477266f255b799bebc004c5f7edb35
+    md5: ad0c638f57fa1ec6de970877d45848fb
   - path: data/summary/tfidf.json
-    md5: 41bbace61b670bddddd6bf329ce57269
+    md5: 83d51e482d983ffbd2661466ca89c582
   - path: models_data/classifiers/sentiment_tfidf_logreg
-    md5: 776287f718e8a627257d7639729c3cae.dir
+    md5: 3190cfaac66bfd1e9a01733331c21560.dir
