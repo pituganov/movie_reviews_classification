@@ -68,7 +68,7 @@
         "main": true,
         "class_name": "sklearn_component",
         "infer_method": "predict_proba",
-        "model_class": "sklearn.linear_model:LogisticRegression",
+        "model_class": "sklearn.neighbors:KNeighborsClassifier",
         "save_path": "{MODEL_PATH}/model.pkl",
         "load_path": "{MODEL_PATH}/model.pkl",
         "model_name": "logreg"
