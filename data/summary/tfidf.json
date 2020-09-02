@@ -2,21 +2,21 @@
   "train": {
     "eval_examples_count": 17500,
     "metrics": {
-      "f1_weighted": 0.9287,
-      "f1_macro": 0.9287,
-      "accuracy": 0.9287,
-      "roc_auc": 0.9796
+      "f1_weighted": 0.914,
+      "f1_macro": 0.914,
+      "accuracy": 0.914,
+      "roc_auc": 0.9725
     },
-    "time_spent": "0:00:11"
+    "time_spent": "0:00:10"
   },
   "valid": {
     "eval_examples_count": 7500,
     "metrics": {
-      "f1_weighted": 0.8852,
-      "f1_macro": 0.8852,
-      "accuracy": 0.8852,
-      "roc_auc": 0.9552
+      "f1_weighted": 0.8793,
+      "f1_macro": 0.8793,
+      "accuracy": 0.8793,
+      "roc_auc": 0.9514
     },
-    "time_spent": "0:00:05"
+    "time_spent": "0:00:04"
   }
 }
