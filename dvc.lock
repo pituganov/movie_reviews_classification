@@ -27,7 +27,7 @@ train:
   cmd: nohup python -m deeppavlov train models/tfidf_logreg.json -d > data/logs/tfidf_logreg.log;
     tail -n 2 data/logs/tfidf_logreg.log | head -n 1 > /tmp/train_log.json; tail -n
     1 data/logs/tfidf_logreg.log > /tmp/valid_log.json; jq -s '.[0] * .[1]' /tmp/train_log.json
-    /tmp/valid_log.json > data/summary/tfidf.json
+    /tmp/valid_log.json > data/summary/sentiment.json
   deps:
   - path: data/interim/labeledTrainData.train.csv
     md5: 3ca24a852488babebe5e0423ab22885d
@@ -37,8 +37,8 @@ train:
     md5: fbe5dc1f4696f941a433726ac95f1ee0
   outs:
   - path: data/logs/tfidf_logreg.log
-    md5: ad0c638f57fa1ec6de970877d45848fb
-  - path: data/summary/tfidf.json
+    md5: 29e2b3d860ba4485552b9e8d6415ec8c
+  - path: data/summary/sentiment.json
     md5: 83d51e482d983ffbd2661466ca89c582
   - path: models_data/classifiers/sentiment_tfidf_logreg
-    md5: 3190cfaac66bfd1e9a01733331c21560.dir
+    md5: 31c670eb20575060b3c5bd1fb1a8947c.dir
