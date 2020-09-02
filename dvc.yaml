@@ -22,18 +22,18 @@ stages:
     - data/interim/labeledTrainData.valid.csv:
         cache: false
   train:
-    cmd: nohup python -m deeppavlov train models/conversation_bert.json -d > data/logs/conversation_bert.log;
-      tail -n 2 data/logs/conversation_bert.log | head -n 1 > /tmp/train_log.json;
-      tail -n 1 data/logs/conversation_bert.log > /tmp/valid_log.json;
+    cmd: nohup python -m deeppavlov train models/fasttext_cnn.json -d > data/logs/fasttext_cnn.log;
+      tail -n 2 data/logs/fasttext_cnn.log | head -n 1 > /tmp/train_log.json;
+      tail -n 1 data/logs/fasttext_cnn.log > /tmp/valid_log.json;
       jq -s '.[0] * .[1]' /tmp/train_log.json /tmp/valid_log.json > data/summary/sentiment.json
     deps:
     - data/interim/labeledTrainData.train.csv
     - data/interim/labeledTrainData.valid.csv
-    - models/conversation_bert.json
+    - models/fasttext_cnn.json
     outs:
-    - models_data/classifiers/movie_reviews_conv_bert:
+    - models_data/classifiers/movie_reviews_fasttext_cnn:
         cache: false
-    - data/logs/conversation_bert.log:
+    - data/logs/fasttext_cnn.log:
         cache: false
     metrics:
     - data/summary/sentiment.json:

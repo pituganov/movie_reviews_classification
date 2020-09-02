@@ -24,21 +24,21 @@ split:
   - path: data/interim/labeledTrainData.valid.csv
     md5: eb3570898c46ef96e35668539374933a
 train:
-  cmd: nohup python -m deeppavlov train models/conversation_bert.json -d > data/logs/conversation_bert.log;
-    tail -n 2 data/logs/conversation_bert.log | head -n 1 > /tmp/train_log.json; tail
-    -n 1 data/logs/conversation_bert.log > /tmp/valid_log.json; jq -s '.[0] * .[1]'
-    /tmp/train_log.json /tmp/valid_log.json > data/summary/sentiment.json
+  cmd: nohup python -m deeppavlov train models/fasttext_cnn.json -d > data/logs/fasttext_cnn.log;
+    tail -n 2 data/logs/fasttext_cnn.log | head -n 1 > /tmp/train_log.json; tail -n
+    1 data/logs/fasttext_cnn.log > /tmp/valid_log.json; jq -s '.[0] * .[1]' /tmp/train_log.json
+    /tmp/valid_log.json > data/summary/sentiment.json
   deps:
   - path: data/interim/labeledTrainData.train.csv
     md5: 3ca24a852488babebe5e0423ab22885d
   - path: data/interim/labeledTrainData.valid.csv
     md5: eb3570898c46ef96e35668539374933a
-  - path: models/conversation_bert.json
-    md5: 1e373d4d5f05a63f68363a5996867327
+  - path: models/fasttext_cnn.json
+    md5: f4e60980cf84f54ddcadf8ac9bab74bb
   outs:
-  - path: data/logs/conversation_bert.log
-    md5: 84dc131eb4506fc3d30488de3f6a3127
+  - path: data/logs/fasttext_cnn.log
+    md5: ad0ac09802f4da0c2d4d9f7c02500e66
   - path: data/summary/sentiment.json
-    md5: f20523bc880212d1a700c6ec5b2f17fd
-  - path: models_data/classifiers/movie_reviews_conv_bert
-    md5: b8fa88a8cd05cd1c4d60702801f8e911.dir
+    md5: fa1af260d5bbd509e3c3a7a6df6232b3
+  - path: models_data/classifiers/movie_reviews_fasttext_cnn
+    md5: 24b0d248161c88f76c2bc3797ea0d967.dir
