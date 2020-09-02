@@ -45,9 +45,7 @@
         "save_path": "{MODEL_PATH}/tfidf_vectorizer.pkl",
         "load_path": "{MODEL_PATH}/tfidf_vectorizer.pkl",
         "model_class": "sklearn.feature_extraction.text:TfidfVectorizer",
-        "infer_method": "transform",
-        "ngram_range": [1, 5],
-        "max_features": 15000
+        "infer_method": "transform"
       },
       {
         "in": "y_ids",
