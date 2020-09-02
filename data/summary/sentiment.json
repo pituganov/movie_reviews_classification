@@ -1,0 +1,22 @@
+{
+  "train": {
+    "eval_examples_count": 17500,
+    "metrics": {
+      "f1_weighted": 0.933,
+      "f1_macro": 0.933,
+      "accuracy": 0.933,
+      "roc_auc": 0.9824
+    },
+    "time_spent": "0:00:10"
+  },
+  "valid": {
+    "eval_examples_count": 7500,
+    "metrics": {
+      "f1_weighted": 0.8872,
+      "f1_macro": 0.8872,
+      "accuracy": 0.8872,
+      "roc_auc": 0.9566
+    },
+    "time_spent": "0:00:05"
+  }
+}

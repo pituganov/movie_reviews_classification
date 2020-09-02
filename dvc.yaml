@@ -25,7 +25,7 @@ stages:
     cmd: nohup python -m deeppavlov train models/tfidf_logreg.json -d > data/logs/tfidf_logreg.log;
       tail -n 2 data/logs/tfidf_logreg.log | head -n 1 > /tmp/train_log.json;
       tail -n 1 data/logs/tfidf_logreg.log > /tmp/valid_log.json;
-      jq -s '.[0] * .[1]' /tmp/train_log.json /tmp/valid_log.json > data/summary/tfidf.json
+      jq -s '.[0] * .[1]' /tmp/train_log.json /tmp/valid_log.json > data/summary/sentiment.json
     deps:
     - data/interim/labeledTrainData.train.csv
     - data/interim/labeledTrainData.valid.csv
@@ -36,5 +36,5 @@ stages:
     - data/logs/tfidf_logreg.log:
         cache: false
     metrics:
-    - data/summary/tfidf.json:
+    - data/summary/sentiment.json:
         cache: false
