@@ -27,7 +27,7 @@ train:
   cmd: nohup python -m deeppavlov train models/conversation_bert.json -d > data/logs/conversation_bert.log;
     tail -n 2 data/logs/conversation_bert.log | head -n 1 > /tmp/train_log.json; tail
     -n 1 data/logs/conversation_bert.log > /tmp/valid_log.json; jq -s '.[0] * .[1]'
-    /tmp/train_log.json /tmp/valid_log.json > summary.json
+    /tmp/train_log.json /tmp/valid_log.json > data/summary/conversation_bert.json
   deps:
   - path: data/interim/labeledTrainData.train.csv
     md5: 3ca24a852488babebe5e0423ab22885d
@@ -37,8 +37,8 @@ train:
     md5: 1e373d4d5f05a63f68363a5996867327
   outs:
   - path: data/logs/conversation_bert.log
-    md5: a081ed3ad2709b98cee0ee115e1a9846
+    md5: 92a72d7c2b6ee8d375449874eb91bf87
+  - path: data/summary/conversation_bert.json
+    md5: b2b0a3663753d3ee46c0ad49234eb4fe
   - path: models_data/classifiers/movie_reviews_conv_bert
-    md5: 81ea4fe34ff22e7a7f2c6f45e353eb67.dir
-  - path: summary.json
-    md5: b47e98da84fac1f7658e8bcbd2fa4640
+    md5: 14e1eb40938e0a302f77921b483d5375.dir
