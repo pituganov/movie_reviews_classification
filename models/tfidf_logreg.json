@@ -47,7 +47,7 @@
         "model_class": "sklearn.feature_extraction.text:TfidfVectorizer",
         "infer_method": "transform",
         "ngram_range": [1, 5],
-        "max_features": 10000
+        "max_features": 5000
       },
       {
         "in": "y_ids",
