@@ -25,7 +25,7 @@ stages:
     cmd: nohup python -m deeppavlov train models/conversation_bert.json -d > data/logs/conversation_bert.log;
       tail -n 2 data/logs/conversation_bert.log | head -n 1 > /tmp/train_log.json;
       tail -n 1 data/logs/conversation_bert.log > /tmp/valid_log.json;
-      jq -s '.[0] * .[1]' /tmp/train_log.json /tmp/valid_log.json > data/summary/conversation_bert.json
+      jq -s '.[0] * .[1]' /tmp/train_log.json /tmp/valid_log.json > data/summary/sentiment.json
     deps:
     - data/interim/labeledTrainData.train.csv
     - data/interim/labeledTrainData.valid.csv
@@ -36,5 +36,5 @@ stages:
     - data/logs/conversation_bert.log:
         cache: false
     metrics:
-    - data/summary/conversation_bert.json:
+    - data/summary/sentiment.json:
         cache: false
