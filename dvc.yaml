@@ -22,7 +22,10 @@ stages:
     - data/interim/labeledTrainData.valid.csv:
         cache: false
   train:
-    cmd: python -m deeppavlov train models/conversation_bert.json -d
+    cmd: nohup python -m deeppavlov train models/conversation_bert.json -d > data/logs/conversation_bert.log;
+      tail -n 2 data/logs/conversation_bert.log | head -n 1 > /tmp/train_log.json;
+      tail -n 1 data/logs/conversation_bert.log > /tmp/valid_log.json;
+      jq -s '.[0] * .[1]' /tmp/train_log.json /tmp/valid_log.json > summary.json
     deps:
     - data/interim/labeledTrainData.train.csv
     - data/interim/labeledTrainData.valid.csv
@@ -30,3 +33,8 @@ stages:
     outs:
     - models_data/classifiers/movie_reviews_conv_bert:
         cache: false
+    - data/logs/conversation_bert.log:
+        cache: false
+    metrics:
+    - summary.json:
+        cache: true

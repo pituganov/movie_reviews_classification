@@ -1,0 +1,20 @@
+{
+  "train": {
+    "eval_examples_count": 17500,
+    "metrics": {
+      "f1_weighted": 0.9568,
+      "f1_macro": 0.9568,
+      "roc_auc": 0.9938
+    },
+    "time_spent": "0:05:45"
+  },
+  "valid": {
+    "eval_examples_count": 7500,
+    "metrics": {
+      "f1_weighted": 0.9206,
+      "f1_macro": 0.9206,
+      "roc_auc": 0.9802
+    },
+    "time_spent": "0:02:28"
+  }
+}
